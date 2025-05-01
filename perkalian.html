@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Belajar Perkalian - Math Kids</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Additional style for number animation */
+    .number-animate {
+      display: inline-block;
+      opacity: 0;
+      animation: fadeInUp 0.5s forwards;
+    }
+  </style>
+</head>
+<body data-page="perkalian">
+
+  <button id="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
+
+  <div class="sidebar">
+    <h2>MATEMATIKA MINUL</h2>
+    <ul>
+      <li><a href="index.html" data-icon="🏠">Beranda</a></li>
+      <li><a href="penjumlahan.html" data-icon="➕">Penjumlahan</a></li>
+      <li><a href="pengurangan.html" data-icon="➖">Pengurangan</a></li>
+      <li><a href="perkalian.html" class="active" data-icon="✖️">Perkalian</a></li>
+      <li><a href="pembagian.html" data-icon="➗">Pembagian</a></li>
+    </ul>
+  </div>
+
+  <main class="main-content">
+    <h1>Belajar Perkalian</h1>
+    <div id="main-content">
+      <div id="question-container" class="fade-in-up" style="font-size: 2rem; margin-bottom: 20px; user-select:none;">
+        <p id="question-text"></p>
+      </div>
+      <input type="number" id="answer-input" placeholder="Masukkan jawabanmu" style="font-size: 1.5rem; padding: 10px; border-radius: 10px; border: 2px solid var(--color-blue);" />
+      <p id="feedback" style="font-size: 1.3rem; margin-top: 10px; min-height: 30px; user-select:none;"></p>
+      <button id="check-btn" onclick="checkAnswer()">Cek Jawaban</button>
+      <button id="next-btn" onclick="nextQuestion()" style="display:none;">Selanjutnya</button>
+      <div class="progress-container" style="margin-top: 20px;">
+        <div id="progress-bar" class="progress-bar"></div>
+      </div>
+      <p id="score" style="font-size: 1.2rem; user-select:none;"></p>
+    </div>
+  </main>
+
+  <script src="js/script.js"></script>
+  <script>
+    // Override showQuestion to animate numbers one by one for perkalian page
+    function showQuestion() {
+      const questionObj = quizzes.perkalian[currentQuestionIndex];
+      const questionText = questionObj.question;
+      const questionEl = document.getElementById("question-text");
+      questionEl.innerHTML = "";
+      const chars = questionText.split("");
+      chars.forEach((char, index) => {
+        const span = document.createElement("span");
+        span.textContent = char;
+        span.className = "number-animate";
+        span.style.animationDelay = (index * 0.2) + "s";
+        questionEl.appendChild(span);
+      });
+
+      $("answer-input").value = "";
+      $("feedback").textContent = "";
+      $("feedback").className = "";
+      $("next-btn").style.display = "none";
+      $("answer-input").disabled = false;
+    }
+  </script>
+  <div id="notification"></div>
+  <script src="sidebar-toggle.js"></script>
+
+</body>
+</html>

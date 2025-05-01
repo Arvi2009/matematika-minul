@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Belajar Penjumlahan - Math Kids</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body data-page="penjumlahan">
+
+  <button id="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
+
+  <div class="sidebar">
+    <h2>MATEMATIKA MINUL</h2>
+    <ul>
+      <li><a href="index.html" data-icon="🏠">Beranda</a></li>
+      <li><a href="penjumlahan.html" class="active" data-icon="➕">Penjumlahan</a></li>
+      <li><a href="pengurangan.html" data-icon="➖">Pengurangan</a></li>
+      <li><a href="perkalian.html" data-icon="✖️">Perkalian</a></li>
+      <li><a href="pembagian.html" data-icon="➗">Pembagian</a></li>
+    </ul>
+  </div>
+
+  <main class="main-content">
+    <h1>Belajar Penjumlahan</h1>
+    <div id="main-content">
+      <div id="question-container" class="fade-in-up">
+        <p id="question-text" style="font-size: 2rem; margin-bottom: 20px; user-select:none;"></p>
+        <input type="number" id="answer-input" placeholder="Masukkan jawabanmu" style="font-size: 1.5rem; padding: 10px; border-radius: 10px; border: 2px solid var(--color-blue);" />
+        <p id="feedback" style="font-size: 1.3rem; margin-top: 10px; min-height: 30px; user-select:none;"></p>
+        <button id="check-btn" onclick="checkAnswer()">Cek Jawaban</button>
+        <button id="next-btn" onclick="nextQuestion()" style="display:none;">Selanjutnya</button>
+      </div>
+      <div class="progress-container">
+        <div id="progress-bar" class="progress-bar"></div>
+      </div>
+      <p id="score" style="font-size: 1.2rem; user-select:none;"></p>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script src="sidebar-toggle.js"></script>
+  <div id="notification"></div>
+</body>
+</html>
